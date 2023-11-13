@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-@Schema()
-export class Application {
+@Schema({ timestamps: true })
+export class App {
   @Prop()
   uid: string;
 }
 
-export const ApplicationSchema = SchemaFactory.createForClass(Application);
+export const AppSchema = SchemaFactory.createForClass(App);

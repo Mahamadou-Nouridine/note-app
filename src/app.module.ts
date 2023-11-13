@@ -3,11 +3,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ApplicationModule } from './application/application.module';
+import { NoteModule } from './note/note.module';
 
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://nouridine:5848094312@cluster0.bzxp8sd.mongodb.net/?retryWrites=true&w=majority',
+      'mongodb+srv://nouridine:5848094312@cluster0.bzxp8sd.mongodb.net/note-app?retryWrites=true&w=majority',
       {
         connectionFactory: (connection) => {
           if (connection.readyState === 1) {
@@ -21,6 +22,7 @@ import { ApplicationModule } from './application/application.module';
       },
     ),
     ApplicationModule,
+    NoteModule,
   ],
   controllers: [AppController],
   providers: [AppService],

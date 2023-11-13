@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { App } from './app.schema';
 import mongoose from 'mongoose';
+import { App } from 'src/application/schema/app.schema';
 
 @Schema({ timestamps: true })
 export class Note {

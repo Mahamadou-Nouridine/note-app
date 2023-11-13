@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({ timestamps: true })
 export class App {
-  @Prop()
+  @Prop({ required: true })
   uid: string;
 }
 

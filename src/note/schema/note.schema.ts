@@ -8,6 +8,9 @@ export class Note {
   app: App;
 
   @Prop({ required: true })
+  title: string;
+
+  @Prop({ required: true })
   text: string;
 
   @Prop({ default: false })

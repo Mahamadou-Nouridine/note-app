@@ -16,8 +16,8 @@ export class NoteService {
     return await this.noteModel.findByIdAndDelete(id);
   }
 
-  async update(id: string, text: string): Promise<Note> {
-    return await this.noteModel.findByIdAndUpdate(id, { text }, { new: true });
+  async update(id: string, note: CreateNoteDto): Promise<Note> {
+    return await this.noteModel.findByIdAndUpdate(id, note, { new: true });
   }
 
   async getAll(appId: string): Promise<Note[]> {

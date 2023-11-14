@@ -54,10 +54,7 @@ export class NoteController {
     @Body() createNoteDto: CreateNoteDto,
   ) {
     try {
-      const updatedNote = await this.noteService.update(
-        noteId,
-        createNoteDto.text,
-      );
+      const updatedNote = await this.noteService.update(noteId, createNoteDto);
       return updatedNote;
     } catch (error) {
       throw new InternalServerErrorException('An unexpected Error occured', {

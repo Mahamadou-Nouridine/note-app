@@ -16,4 +16,9 @@ export class ApplicationService {
     const newApp = new this.appModel({ uid });
     return await newApp.save();
   }
+
+  async getApp(appId: string) {
+    const app = this.appModel.findOne({ uid: appId });
+    return app;
+  }
 }

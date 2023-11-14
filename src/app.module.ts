@@ -8,8 +8,8 @@ import { NoteModule } from './note/note.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      // 'mongodb+srv://nouridine:5848094312@cluster0.bzxp8sd.mongodb.net/note-app?retryWrites=true&w=majority',
-      'mongodb://localhost:27017/test',
+      'mongodb+srv://nouridine:5848094312@cluster0.bzxp8sd.mongodb.net/note-app?retryWrites=true&w=majority',
+      // 'mongodb://localhost:27017/test',
       {
         connectionFactory: (connection) => {
           if (connection.readyState === 1) {

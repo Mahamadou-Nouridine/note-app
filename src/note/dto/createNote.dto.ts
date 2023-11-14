@@ -1,4 +1,7 @@
+import { IsNotEmpty, IsString } from 'class-validator';
+
 export class CreateNoteDto {
-  app: string;
+  @IsString()
+  @IsNotEmpty()
   text: string;
 }

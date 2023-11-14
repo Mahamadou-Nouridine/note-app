@@ -4,10 +4,10 @@ import { App } from 'src/application/schema/app.schema';
 
 @Schema({ timestamps: true })
 export class Note {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'App' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'App', required: true })
   app: App;
 
-  @Prop()
+  @Prop({ required: true })
   text: string;
 
   @Prop({ default: false })

@@ -13,14 +13,24 @@ export class NoteService {
   }
 
   async delete(id: string): Promise<void> {
-    return this.noteModel.findByIdAndDelete(id);
+    return await this.noteModel.findByIdAndDelete(id);
   }
 
   async update(id: string, text: string): Promise<Note> {
-    return this.noteModel.findByIdAndUpdate(id, { text });
+    return await this.noteModel.findByIdAndUpdate(id, { text }, { new: true });
   }
 
   async getAll(appId: string): Promise<Note[]> {
-    return this.noteModel.find({ uid: appId });
+    return await this.noteModel.find({ app: appId }).select('-app');
+  }
+
+  async getNote(noteId: string) {
+    return await this.noteModel.findById(noteId).select('-app');
+  }
+
+  async toggleFavorite(noteId: string): Promise<Note> {
+    const note = await this.getNote(noteId);
+    note.isFavorite = !note.isFavorite;
+    return await note.save();
   }
 }

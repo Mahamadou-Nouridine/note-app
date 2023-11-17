@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   InternalServerErrorException,
@@ -75,7 +76,7 @@ export class NoteController {
     }
   }
 
-  @Post(':id')
+  @Delete(':id')
   async deleteNote(@Param('id') noteId: string) {
     try {
       await this.noteService.delete(noteId);

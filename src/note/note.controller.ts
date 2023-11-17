@@ -74,4 +74,16 @@ export class NoteController {
       });
     }
   }
+
+  @Post(':id')
+  async deleteNote(@Param('id') noteId: string) {
+    try {
+      await this.noteService.delete(noteId);
+      return { success: true, message: 'Note deleted successfully' };
+    } catch (error) {
+      throw new InternalServerErrorException('An unexpected Error occured', {
+        cause: error,
+      });
+    }
+  }
 }

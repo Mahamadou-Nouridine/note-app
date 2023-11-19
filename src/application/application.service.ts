@@ -11,9 +11,9 @@ export class ApplicationService {
     private uidGenerator: Uid,
   ) {}
 
-  async create(): Promise<App> {
+  async create(name: string): Promise<App> {
     const uid = this.uidGenerator.generateId();
-    const newApp = new this.appModel({ uid });
+    const newApp = new this.appModel({ uid, name });
     return await newApp.save();
   }
 
